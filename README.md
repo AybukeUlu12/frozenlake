@@ -2,7 +2,7 @@
 
 **Premise 04 Temporality × Premise 05 Possibility** · NMED 3203 premise remix
 
-**Live link:** https://YOUR-USERNAME.github.io/premise-remix/
+**Live link:** https://aybukeulu12.github.io/frozenlake/
 
 You are a penguin collecting fish on a frozen lake. Every ice tile you step on starts a clock: a few seconds later it breaks and becomes water (Temporality), and water is no longer a place you can go (Possibility). Your past steps decide which future steps still exist.
 
