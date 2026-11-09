@@ -2,7 +2,7 @@
 
 **Premise 04 Temporality × Premise 05 Possibility** · NMED 3203 premise remix
 
-**Live link:** https://aybukeulu12.github.io/frozenlake/
+**Live link:** https://YOUR-USERNAME.github.io/premise-remix/
 
 You are a penguin collecting fish on a frozen lake. Every ice tile you step on starts a clock: a few seconds later it breaks and becomes water (Temporality), and water is no longer a place you can go (Possibility). Your past steps decide which future steps still exist.
 
@@ -44,9 +44,13 @@ Turning `breaking` off (key `T`) removes rule 2: every path stays possible and t
 
 ## Readings
 
-*(fill in the two readings you opened, with links)*
+- Gaver, W. W. (1991). Technology affordances. *Proceedings of CHI '91*, 79–84. https://www.lri.fr/~mbl/Stanford/CS477/papers/Gaver-CHI1991.pdf : visible cracks and the countdown are perceptible affordances; with `warn` off the ice becomes a hidden one.
+- Benford, S., & Giannachi, G. (2008). Temporal trajectories in shared interactive narratives. *Proceedings of CHI '08*, 73–82. https://doi.org/10.1145/1357054.1357067 : the designed duration is the canonical trajectory; each player's route writes its own participant trajectory, so every tile has its own clock.
+
+See [RATIONALE.md](RATIONALE.md) for the full design rationale.
 
 ## AI note
 
-- Tools used: *(fill in)*
-- One thing I rejected or corrected: *(fill in with a real example)*
+- Tools used: Claude (Anthropic) to brainstorm premise pairs, build prototypes on the lab shell, debug, and give feedback on my rationale text.
+- I tried several AI-built prototypes (an hourglass, a firefly game and others) and rejected them: one felt too passive, the other confusing. I chose Frozen Lake myself.
+- One thing I corrected: the AI suggested changing the default break time to four seconds; I kept three seconds because the time pressure is what makes route choice matter.
