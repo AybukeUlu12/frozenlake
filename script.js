@@ -31,7 +31,9 @@ window.KUTUPHANE.karakterler.push(
     id: 'place.frozenlake', version: 1, kind: 'place', place: LAKE_KEY, name: 'Frozen Lake', premise: 'Temporality × Possibility',
     promise: 'Design time as much as space. Design the space of possibilities, not the object.', game: 'Frozen Lake', footprint: 2.7, height: 2.0,
     parts: [
-      { type: 'cyl', r: 2.75, h: 0.08, at: [0, 0.04, 0], paint: { pattern: 'dots', colors: ['gray', 'paper'], repeat: [6, 6] }, shadow: false },
+      { type: 'cyl', r: 2.75, h: 0.08, at: [0, 0.04, 0], paint: { pattern: 'stars', colors: ['gray', 'paper'], repeat: [5, 5] }, shadow: false },
+      ...[[-2.2, 0.6, 0.32], [-1.9, 1.3, 0.22], [2.05, 1.2, 0.28], [1.5, 1.95, 0.2], [-1.2, 2.05, 0.25]].map(([x, z, r]) =>   // snow mounds
+        ({ type: 'sphere', r, at: [x, 0.08, z], scale: [1.3, 0.55, 1], paint: { color: 'paper' } })),
       pine(Math.PI * 1.12, 2.45, 1.2), pine(Math.PI * 1.25, 2.55, 1.6), pine(Math.PI * 1.75, 2.5, 1.4), pine(Math.PI * 1.88, 2.45, 1.1), pine(Math.PI * 1.98, 2.55, 1.3),
       { type: 'group', at: [-1.95, 0.08, -1.25], parts: [            // igloo
         { type: 'lathe', profile: [[0, 0], [0.5, 0], [0.48, 0.18], [0.36, 0.38], [0.18, 0.48], [0, 0.5]], paint: { pattern: 'bricks', colors: ['paper', 'gray'], repeat: [3, 2] } },
@@ -61,7 +63,7 @@ window.OYUNLAR[LAKE_KEY] = {
     fish: 5,              // fish to collect (new game)
     lives: 3,             // falls allowed
     hopTime: 0.22,        // seconds one hop takes
-    penguinSize: 0.5,     // how big the penguin looks
+    penguinSize: 0.62,    // how big the penguin looks
     iceColor: 'paper'     // colour of the ice
   },
   knobs: [
@@ -91,7 +93,7 @@ window.OYUNLAR[LAKE_KEY] = {
   ],
   question: 'If every step you take removes a future step, how do you plan a path?',
   overlay: { title: 'Frozen Lake', text: 'You are a penguin on a frozen lake. Collect every fish. But the ice remembers you: every tile you step on cracks and breaks a few seconds later, and the path behind you turns to water.', cta: 'CLICK TO START' },
-  view: { at: [0, 0.2, 0.35], zoom: 2.25, pitch: 1.2 },
+  view: { at: [0, 0.25, 0.25], zoom: 2.3, pitch: 0.95 },
 
   make(ctx) {
     const { THREE, D, group } = ctx;
@@ -313,6 +315,10 @@ window.OYUNLAR[LAKE_KEY] = {
       }
       let y = pen.y;
       if (pen.falling >= 0) y = TOP - Math.min(1, (t - pen.falling) / 0.6) * 0.6;    // sinking
+      if (pen.hopT >= 1 && pen.falling < 0) {                              // standing still: slowly turn to face you
+        pen.still = (pen.still || 0) + dt;
+        if (pen.still > 0.35) { const d = 0 - pen.face; pen.face += Math.atan2(Math.sin(d), Math.cos(d)) * Math.min(1, dt * 5); }
+      } else pen.still = 0;
       const nope = t - pen.nope < 0.3 ? Math.sin((t - pen.nope) * 60) * 0.25 : 0;    // shakes its head at water
       ctx.animChar(pen.o, t);
       pen.o.root.position.set(pen.x, y, pen.z);
