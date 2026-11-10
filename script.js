@@ -62,7 +62,7 @@ if (typeof window.createLook === 'function' && !window.createLook.lakePatched) {
 })();
 
 window.OYUNLAR[LAKE_KEY] = {
-  key: LAKE_KEY, title: 'Frozen Lake', premise: 'Temporality × Possibility',
+  key: LAKE_KEY, title: 'Lake', premise: 'Temporality × Possibility',
   premiseText: 'Interaction happens in time. A system makes some actions possible and others impossible.',
   promise: 'Design time as much as space. Design the space of possibilities, not the object.',
   source: 'thin ice puzzles; Sand Box (IMA Lab) without undo',
