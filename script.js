@@ -42,7 +42,7 @@ if (typeof window.createLook === 'function' && !window.createLook.lakePatched) {
     { type: 'cyl', r: 0.06, rTop: 0.045, h: 0.4, at: [0, 0.2, 0], paint: { color: 'wood' } },
     { type: 'cone', r: h * 0.3, h, at: [0, 0.38 + h / 2, 0], paint: { pattern: 'diag', colors: ['green', 'paper'], repeat: [3, 2] } }] });
   window.KUTUPHANE.mekanlar.push({
-    id: 'place.frozenlake', version: 1, kind: 'place', place: LAKE_KEY, name: 'Frozen Lake', premise: 'Temporality × Possibility',
+    id: 'place.frozenlake', version: 1, kind: 'place', place: LAKE_KEY, name: 'Lake', premise: 'Temporality × Possibility',
     promise: 'Design time as much as space. Design the space of possibilities, not the object.', game: 'Frozen Lake', footprint: 2.7, height: 2.0,
     parts: [
       { type: 'cyl', r: 3.6, h: 0.08, at: [0, 0.04, 0], paint: { pattern: 'stars', colors: ['gray', 'paper'], repeat: [7, 7] }, shadow: false },
